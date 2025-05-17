@@ -1,6 +1,5 @@
 //Home UI for the BlogAPP (using Cards)
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, CardActionArea, Typography, Button, Grid } from '@mui/material';
 import axios from 'axios';
 
@@ -21,8 +20,8 @@ const Home = () => {
     <>
      <Grid
        container
-       spacing={2}
-       sx={{ padding: 15, minHeight: '100vh' }}
+       spacing={3}
+       sx={{ padding: 10 }}
        justifyContent="center"
        alignItems="center"
     >
@@ -30,30 +29,31 @@ const Home = () => {
           <Grid item xs={12} sm={6} md={4} key={blog._id}>
              <Card
                 sx={{
-                  maxWidth: 420,
-                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  maxWidth: 400,
+                  transition: 'transform 0.5s, box-shadow 0.5s',
                   '&:hover': {
-                    transform: 'scale(1.03)',
-                    boxShadow: 6,
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
                   },
                 }}
               >
 
                <CardActionArea>            
                 <CardMedia
-                 component="img"
-                 height="200"
-                 image={blog.img_url}
-                 alt="Blog Image"
-                 sx={{ 
-                 padding: 1,
-                 }}
+                  component="img"
+                  height="180"
+                  image={blog.img_url}
+                  alt="Blog Image"
+                  sx={{ 
+                    width: '93.5%',
+                    padding: 1.5
+                  }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="body2" color="text.secondary" component="div">
+                  <Typography gutterBottom variant="body1" color="text.secondary" component="div">
                     {blog.title}
                   </Typography>
-                  <Typography variant="h5" >
+                  <Typography variant="h6" >
                     {blog.content}
                   </Typography>                 
                   <Button size="small" variant='contained' color='secondary' sx={{ mr: 1, mt: 3 }} >Delete</Button>
